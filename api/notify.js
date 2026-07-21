@@ -34,9 +34,9 @@ export default async function handler(req, res) {
     }
 
     const text = [
-      'Novaya zayavka s sajta',
+      'Новая заявка с сайта',
       'Telegram: ' + username,
-      'Chto nuzhno: ' + need
+      'Что нужно: ' + need
     ].join('\n');
 
     const tgRes = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
