@@ -4,29 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Создаю сайты-визитки и лендинги для малого бизнеса и услуг. Продумываю структуру, дизайн, адаптив и подключаю удобную форму связи в Telegram.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#050505">
+  <link rel="canonical" href="https://me-web-three.vercel.app/">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="МИ / WEB — сайты и лендинги">
   <meta property="og:description" content="Сайты-визитки и лендинги без шаблонного шума: структура, дизайн, адаптив и связь через Telegram.">
-  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:image" content="https://me-web-three.vercel.app/assets/og-image.jpg">
+  <meta property="og:image:alt" content="МИ / WEB — сайты и лендинги">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://me-web-three.vercel.app/">
+  <meta property="og:locale" content="ru_RU">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="МИ / WEB — сайты и лендинги">
+  <meta name="twitter:description" content="Сайты-визитки и лендинги без шаблонного шума.">
+  <meta name="twitter:image" content="https://me-web-three.vercel.app/assets/og-image.jpg">
+
   <title>МИ / WEB — разработка сайтов и лендингов</title>
+
+  <!-- Content Security Policy (defense-in-depth; основные заголовки — в vercel.json) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; script-src 'self'; base-uri 'self'; form-action 'self'">
+
+  <!-- Favicon / PWA -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Микроразметка для поисковиков -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"МИ / WEB","description":"Разработка сайтов-визиток и лендингов для малого бизнеса и услуг.","url":"https://me-web-three.vercel.app/","areaServed":"RU","priceRange":"от 7000 ₽","contactPoint":{"@type":"ContactPoint","contactType":"sales","url":"https://t.me/Miss_hah"}}
+  </script>
 </head>
 <body>
+<a class="skip-link" href="#top">К содержимому</a>
+<header class="site-header">
+  <div class="page header-inner">
+    <a class="brand" href="#top">МИ / WEB</a>
+    <nav aria-label="Основная навигация"><a href="#manifest">Обо мне</a><a href="#services">Услуги</a><a href="#process">Процесс</a></nav>
+    <a class="nav-cta" href="#contact">Обсудить проект <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
 <main>
-  <header class="site-header">
-    <div class="page header-inner">
-      <a class="brand" href="#top">МИ / WEB</a>
-      <nav aria-label="Основная навигация"><a href="#manifest">Обо мне</a><a href="#services">Услуги</a><a href="#process">Процесс</a></nav>
-      <a class="nav-cta" href="#contact">Обсудить проект <span aria-hidden="true">↗</span></a>
-    </div>
-  </header>
-
   <section id="top" class="hero">
     <div class="hero-word hero-word-solid" aria-hidden="true">PORTFOLIO</div>
-    <div class="hero-statue" aria-hidden="true"><img src="assets/pexels-photo-22937490.avif" alt="" onerror="this.style.visibility='hidden'"></div>
+    <div class="hero-statue" aria-hidden="true"><img src="assets/pexels-photo-22937490.avif" alt="" id="heroStatueImg" width="1600" height="2844" fetchpriority="high" decoding="async"></div>
     <h1 class="hero-word hero-word-outline glitch" data-text="PORTFOLIO">PORTFOLIO</h1>
     <div class="page hero-bottom">
       <p class="hero-caption">Сайты, лендинги и формы записи<br>без шаблонного шума</p>
@@ -68,7 +97,7 @@
   <section id="process" class="section page top-line">
     <div class="section-label"><span>03</span> Как работаем</div>
     <div class="process-layout"><div><h2 class="display-title">ОТ ИДЕИ<br>ДО <span class="outline-text">ЗАПУСКА</span></h2>
-      <div class="process-visual"><img src="assets/sisyphus-web.jpg" alt="Мраморная статуя Сизифа, толкающего камень в гору" loading="lazy"><div class="process-visual-fade"></div></div>
+      <div class="process-visual"><img src="assets/sisyphus-web.jpg" alt="Мраморная статуя Сизифа, толкающего камень в гору" width="1600" height="1200" loading="lazy" decoding="async"><div class="process-visual-fade"></div></div>
       <p class="process-note">Собираю проект от идеи до запуска: без хаоса, бесконечных правок и технической головной боли.</p>
     </div><ol class="process-list">
       <li><span>01</span><div><h3>Погружаюсь</h3><p>Разбираю продукт, аудиторию и цель. Находим главное, что убедит клиента.</p></div></li>
@@ -85,28 +114,25 @@
       <div class="faq-item"><button aria-expanded="false"><span>Что нужно от меня?</span><i>+</i></button><div class="faq-answer"><p>Коротко рассказать о продукте и ответить на вопросы. Структуру, тексты и визуальное направление беру на себя.</p></div></div>
       <div class="faq-item"><button aria-expanded="false"><span>Можно внести правки?</span><i>+</i></button><div class="faq-answer"><p>В стоимость входят 2 списка правок до запуска. После запуска 14 дней бесплатно делаю мелкие изменения: текст, контакты и небольшие визуальные правки. Крупные доработки и новые блоки обсуждаются отдельно.</p></div></div>
       <div class="faq-item"><button aria-expanded="false"><span>Сайт будет работать на телефоне?</span><i>+</i></button><div class="faq-answer"><p>Да. Каждый проект адаптируется под смартфоны, планшеты и большие экраны.</p></div></div>
-      <div class="faq-item"><button aria-expanded="false"><span>Как я снимаю риски?</span><i>+</i></button><div class="faq-answer"><p>До старта фиксируем задачу, стоимость и сроки. Работа идёт поэтапно: сначала структура, потом дизайн и сборка. Вы видите процесс и можете внести правки до запуска.</p></div></div>
-      <div class="faq-item"><button aria-expanded="false"><span>Как проходит оплата?</span><i>+</i></button><div class="faq-answer"><p>До старта фиксируем цену и сроки. Работа начинается с предоплаты, остаток — после готового результата.</p></div></div>
+      <div class="faq-item"><button aria-expanded="false"><span>Как я снимаю риски?</span><i>+</i></button><div class="faq-answer"><p>До старта фиксируем задачу, стоимость и сроки. Работа идёт поэтапно: сначала структура, потом дизайн и сборка. Вы видите процесс и можете внести правки до запуска. Если на этапе дизайна макет вам не подойдёт — возвращаю предоплату.</p></div></div>
+      <div class="faq-item"><button aria-expanded="false"><span>Как проходит оплата?</span><i>+</i></button><div class="faq-answer"><p>До старта фиксируем цену и сроки. Работа начинается с предоплаты, остаток — после готового результата. Если на этапе дизайна макет вам не подойдёт — предоплату возвращаю.</p></div></div>
+      <div class="faq-item"><button aria-expanded="false"><span>Как работает форма записи в Telegram?</span><i>+</i></button><div class="faq-answer"><p>Человек оставляет на сайте свой Telegram, телефон или нужную услугу. После отправки заявка сразу приходит владельцу в Telegram, а дальше он или менеджер связывается с клиентом.</p></div></div>
     </div></div>
   </section>
+</main>
 
-  <footer id="contact" class="contact-section"><div class="page">
+<footer id="contact" class="contact-section"><div class="page">
     <p class="section-label"><span>05</span> Новый проект</p>
     <h2>ЕСТЬ ИДЕЯ?<br><span>СДЕЛАЕМ ГРОМКО.</span></h2>
     <div class="contact-links" aria-label="Способы связи">
-      <a class="contact-link" href="https://t.me/Miss_hah" target="_blank" rel="noreferrer">Написать в Telegram <span>↗</span></a>
-      <a class="contact-link" href="https://vk.me/id770628498" target="_blank" rel="noreferrer">Написать в VK <span>↗</span></a>
-      <a class="contact-link" href="https://max.ru/u/f9LHodD0cOI6eohZOX4cyJw6xPq0C0y_rhtazyzv-krI0AkitKg7beSCEE4" target="_blank" rel="noreferrer">Написать в MAX <span>↗</span></a>
+      <a class="contact-link" href="https://t.me/Miss_hah" target="_blank" rel="noopener noreferrer">Написать в Telegram <span>↗</span></a>
+      <a class="contact-link" href="https://vk.ru/club240405270" target="_blank" rel="noopener noreferrer">Написать в VK <span>↗</span></a>
+      <a class="contact-link" href="https://max.ru/u/f9LHodD0cOI6eohZOX4cyJw6xPq0C0y_rhtazyzv-krI0AkitKg7beSCEE4" target="_blank" rel="noopener noreferrer">Написать в MAX <span>↗</span></a>
     </div>
-    <p class="contact-or">Или оставьте заявку прямо тут — я сам напишу вам в Telegram, звонки не нужны:</p>
-    <form class="contact-form" id="contactForm">
-      <div class="contact-field"><label for="cf-username">Ваш Telegram</label><input id="cf-username" name="username" type="text" placeholder="@username" autocomplete="off" required></div>
-      <div class="contact-field"><label for="cf-need">Что нужно</label><textarea id="cf-need" name="need" rows="3" placeholder="Коротко: что хотите сделать" required></textarea></div>
-      <button type="submit" class="contact-submit">Отправить заявку</button>
-      <p class="contact-form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
-    </form>
-    <div class="footer-line"><span>© 2026 МИ / WEB</span><a href="https://t.me/Miss_hah" target="_blank" rel="noreferrer">Telegram: @Miss_hah</a><a href="#top">Наверх ↑</a></div>
+    <div class="contact-guarantee"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия: если макет на этапе дизайна вам не подойдёт — верну предоплату.</span></div>
+    <div class="footer-line"><span>© 2026 МИ / WEB</span><a href="https://t.me/Miss_hah" target="_blank" rel="noopener noreferrer">Telegram: @Miss_hah</a><a href="#top">Наверх ↑</a></div>
   </div></footer>
+
   <div class="example-modal-overlay" id="exampleModal" aria-hidden="true">
     <div class="example-modal" role="dialog" aria-modal="true" aria-labelledby="exampleModalTitle">
       <button type="button" class="example-modal-close" id="exampleModalClose" aria-label="Закрыть">×</button>
@@ -117,11 +143,11 @@
         <div class="example-info-block"><h4>Что это</h4><p id="exampleModalWhat"></p></div>
         <div class="example-info-block"><h4>Что делает</h4><p id="exampleModalDoes"></p></div>
         <div class="example-info-block"><h4>Чем полезно</h4><p id="exampleModalUseful"></p></div>
-        <a class="example-demo-link" id="exampleModalLink" href="#" target="_blank" rel="noreferrer">Открыть демо <span>↗</span></a>
+        <a class="example-demo-link" id="exampleModalLink" href="#" target="_blank" rel="noopener noreferrer">Открыть демо <span>↗</span></a>
       </div>
     </div>
   </div>
-</main>
+
 <script src="script.js"></script>
 </body>
 </html>

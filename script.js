@@ -1,3 +1,4 @@
+/* ---- FAQ accordion ---- */
 document.querySelectorAll('.faq-item button').forEach((button) => {
   button.addEventListener('click', () => {
     const item = button.closest('.faq-item');
@@ -13,10 +14,16 @@ document.querySelectorAll('.faq-item button').forEach((button) => {
     if (!isOpen) {
       answer.classList.add('open');
       button.setAttribute('aria-expanded', 'true');
-      button.querySelector('i').textContent = '−';
+      button.querySelector('i').textContent = '\u2212';
     }
   });
 });
+
+/* ---- Hero image graceful fallback (вынесено из inline onerror ради CSP) ---- */
+const heroStatueImg = document.getElementById('heroStatueImg');
+if (heroStatueImg) {
+  heroStatueImg.addEventListener('error', () => { heroStatueImg.style.visibility = 'hidden'; });
+}
 
 /* ---- Modal with work examples ---- */
 const exampleData = {
@@ -79,11 +86,15 @@ function openExampleModal(key, trigger) {
   modalDoes.textContent = item.does;
   modalUseful.textContent = item.useful;
   if (modalLink) modalLink.href = item.link || '#';
-  modalGallery.innerHTML = '';
+  modalGallery.textContent = '';
   item.shots.forEach((label, index) => {
     const shot = document.createElement('div');
     shot.className = 'example-shot' + (index === 0 ? ' example-shot-large' : '');
-    shot.innerHTML = '<span>' + label + '</span><small>Заменить на скрин проекта</small>';
+    const span = document.createElement('span');
+    span.textContent = label;
+    const small = document.createElement('small');
+    small.textContent = 'Заменить на скрин проекта';
+    shot.append(span, small);
     modalGallery.appendChild(shot);
   });
   modalOverlay.classList.add('open');
@@ -113,35 +124,13 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('open')) closeExampleModal();
 });
 
-/* ---- Contact form -> Telegram notification ---- */
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const status = document.getElementById('contactFormStatus');
-    const submitBtn = contactForm.querySelector('.contact-submit');
-    const payload = {
-      username: contactForm.username.value.trim(),
-      need: contactForm.need.value.trim()
-    };
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Отправляю...';
-    status.textContent = 'Отправляю...';
-    try {
-      const res = await fetch('/api/notify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) throw new Error('bad response');
-      status.textContent = 'Заявка отправлена. Я напишу вам в Telegram.';
-      contactForm.reset();
-    } catch (err) {
-      status.textContent = 'Не получилось отправить. Напишите мне напрямую в Telegram.';
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
-  });
-}
+/* ---- Focus trap: удерживаем Tab внутри открытого модального окна ---- */
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Tab' || !modalOverlay || !modalOverlay.classList.contains('open')) return;
+  const focusables = modalOverlay.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  if (!focusables.length) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+});
